@@ -1,0 +1,4 @@
+<view>
+  <view>注册用户分配username{{user.username}}</view>
+  <image src="{{userInfo.avatarUrl}}"></image>
+</view>

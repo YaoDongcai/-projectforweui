@@ -41,6 +41,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    user:null // 当前在我们的库里面注册的信息;
   }
 })

@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
-const app = getApp()
-var Teacher = require('../../lib/service.js');
+const app = getApp();
+const AV = require('../../lib/av-weapp-min.js')
+var Teacher = require('../../lib/teacherClass.js');
 Page({
 
   data: {
@@ -11,6 +12,22 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  // 跳转到个人介绍页面
+  introduce: function(event) {
+    // 
+    var id = event.currentTarget.dataset.objectid;
+    console.log(id);
+    var url = '../person/person?id=' + id;
+    console.log(url);
+    // 跳转到对应的url 详情界面中 可以预约这门课程：
+    // 预约的时候 需要检测这个当前用户的一些个人信息：
+
+    wx.navigateTo({
+      url: url
+    })
+    //console.log('---objectid' + JSON.stringify(var id = event.currentTarget.dataset.id))
+  },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -19,6 +36,15 @@ Page({
   },
   onLoad: function () {
     // 去获取所有的index 数据：
+    // leancloud 开始检测当前用户的状况;
+
+    AV.User.loginWithWeapp().then(user => {
+       // 设置当前的信息为这个user；
+       //将当前这个用户的信息放在这个里面：
+      app.globalData.user = user.toJSON();
+       // 
+    }).catch(console.error);
+
     var teacher = new Teacher();
     let promise = teacher.getTeacherCourseList();
     promise.then(res=> {
@@ -63,7 +89,8 @@ Page({
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      hasUserInfo: true,
+      
     })
   }
 })

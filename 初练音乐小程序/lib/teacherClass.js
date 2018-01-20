@@ -5,7 +5,18 @@ class TeacherClass {
       //
       console.log('Teacher Class construct');
     }
+    // 获取当前的老师详情信息
+    getTeacherByObjectId(id) {
+      var query = new AV.Query('Teacher');
+      wx.showLoading({
+        title: '正在加载',
+        mask: true
+      });
 
+      var promise = query.get(id);
+      return promise;
+
+    }
     // 获取所有的课程list 列表  这个是我们的推荐老师部分：
     getTeacherCourseList() {
         var query = new AV.Query('Teacher');
