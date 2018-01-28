@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/person/person",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/history/history"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -18,8 +19,8 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "消息"
+        "pagePath": "pages/history/history",
+        "text": "预约历史"
       },
       {
         "pagePath": "pages/user/user",

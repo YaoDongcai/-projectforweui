@@ -1,16 +1,10 @@
 <!--index.wxml-->
-  <view class="userinfo">
+  <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  </view>
-  
-
-
-
-
-
+  </view> -->
 
 <view class="weui-panel weui-panel_access">
-  <view class="weui-media-box weui-media-box_appmsg" wx:for= "{{courseList}}" bindtap="introduce" data-objectid = "{{item.objectId}}"> 
+  <view class="weui-media-box weui-media-box_appmsg" wx:key="{{item.objectId}}" wx:for= "{{courseList}}" bindtap="introduce" data-objectid = "{{item.objectId}}"> 
     <view class="weui-media-box__hd">
 
       <image src="{{item.img_url}}" class="weui-cell-avater"></image>

@@ -1,0 +1,17 @@
+<view class="weui-panel weui-panel_access">
+  <view class="weui-media-box weui-media-box_appmsg" wx:key="{{item.objectId}}" wx:for= "{{historyList}}"> 
+    <view class="weui-media-box__hd">
+      <!-- {{item.teacherID}} -->
+    </view> 
+
+    <view class="weui-media-bo__bd" >
+
+       <view class="weui-media-box__bd">
+        <view class="weui-media-box__title" >{{'预约号码：' + item.userPhone}}</view>
+        <view class="weui-media-box__desc">{{item.type=='0' ? '教师未确认,请耐心等待':'预约成功,相关消息会自动同步我的页面'}}</view>
+      
+      </view> 
+    </view>
+  </view>
+</view>
+

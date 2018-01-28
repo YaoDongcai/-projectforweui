@@ -1,4 +1,10 @@
+<view class="userinfo">
+  <view class="weui-cell-avater">
+  <image src="{{userInfo.avatarUrl}}" class="userinfo-avatar"></image>
+  </view>
+</view>
+
 <view>
-  <view>注册用户分配username{{user.username}}</view>
-  <image src="{{userInfo.avatarUrl}}"></image>
+  <p>新消息提醒</p>
+  
 </view>
